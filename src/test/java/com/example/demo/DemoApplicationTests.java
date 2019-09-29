@@ -6,6 +6,7 @@ import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.qianxinyao.analysis.jieba.keyword.Keyword;
 import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.hfutec.preprocess.WordFiltering;
 import org.hfutec.preprocess.wordseg.Jieba;
 import org.hfutec.preprocess.wordseg.Jieba;
@@ -15,6 +16,7 @@ import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.internal.util.StringUtil;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -375,6 +377,8 @@ public class DemoApplicationTests {
 
     @Test
     public void jndoTime(){
+
+//        测试时间DateTime类和Date还有SimpleDateFormat之间的相互转换
         DateTime dateTime = new DateTime();
         // 获取指定String值的DateTime
         DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss");
@@ -391,4 +395,15 @@ public class DemoApplicationTests {
     }
 
 
+    @Test
+    public void stringUtilTest(){
+//        stringUtil 的isempty和isblank方法
+//        String name = null;
+        String name = null;
+        System.out.println("isblank " + StringUtils.isBlank(name));
+
+        System.out.println("isempty " + StringUtils.isEmpty(name));
+//        System.out.println(name.isEmpty());
+
+    }
 }
