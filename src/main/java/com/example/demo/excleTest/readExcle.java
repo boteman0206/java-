@@ -3,9 +3,7 @@ package com.example.demo.excleTest;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class readExcle {
@@ -15,9 +13,9 @@ public class readExcle {
 
     public static void main(String[] args) {
         readExcle readExcle = new readExcle();
-        List list = readExcle.readExcel();
-        for (Object o : list) {
-            System.out.println(o);
+        List<keyWordsEntity> list = readExcle.readExcel();
+        for (keyWordsEntity o : list) {
+            System.out.println(o.getTagName() + "==========="  +  o.getKeyWord());
 
         }
     }
@@ -25,10 +23,10 @@ public class readExcle {
     public List readExcel()
 
     {
-        List list = new ArrayList();
+        List<keyWordsEntity> list = new ArrayList();
         try {
             //同时支持Excel 2003、2007
-            InputStream resourceAsStream = this.getClass().getResourceAsStream("/data/a.xls");
+            InputStream resourceAsStream = this.getClass().getResourceAsStream("/data/keyWords.xls");
             System.out.println(resourceAsStream);
 
 //            File excelFile = new File("/home/atomu/javaTest/marcJava/src/main/resources/data/a.xls"); //创建文件对象
@@ -41,11 +39,13 @@ public class readExcle {
                 Sheet sheet = workbook.getSheetAt(s);
                 int rowCount = sheet.getPhysicalNumberOfRows(); //获取总行数
                 //遍历每一行
-                for (int r = 0; r < rowCount; r++) {
+                for (int r = 1; r < rowCount; r++) {
                     Row row = sheet.getRow(r);
                     int cellCount = row.getPhysicalNumberOfCells(); //获取总列数
                     //遍历每一个单元格
+                    keyWordsEntity keyWordsEntity = new keyWordsEntity();
                     for (int c = 0; c < cellCount; c++) {
+
                         Cell cell = row.getCell(c);
                         int cellType = cell.getCellType();
                         String cellValue = null;
@@ -57,10 +57,15 @@ public class readExcle {
                         cellValue = cell.getStringCellValue();
 
                         /*在这里可以对每个单元格中的值进行二次操作转化*/
-
+                        if(c==0){
+                            keyWordsEntity.setTagName(cellValue);
+                        }else if(c==1){
+                            keyWordsEntity.setKeyWord(cellValue);
+                        }
 //                        System.out.print(cellValue + "    ");
-                        list.add(cellValue);
+//                        list.add(cellValue);
                     }
+                    list.add(keyWordsEntity);
 //                    System.out.println();
                 }
             }

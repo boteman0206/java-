@@ -411,6 +411,9 @@ public class DemoApplicationTests {
     @Test
     public void fanxinTest(){
 
+        String date1 = "2019-01-06";
+        String substring = date1.substring(0, 7);
+        System.out.println(substring);
     }
 
 }
