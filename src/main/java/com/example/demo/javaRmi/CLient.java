@@ -10,10 +10,12 @@ import java.rmi.RemoteException;
 public class CLient {
     public static void main(String args[]) {
         try {
-            // 填写服务器ip   如果是在其他服务器中 则他们的包名和类的名字必须一样的才能调用
+            // 填写服务器ip
             IHello rhello = (IHello) Naming.lookup("rmi://127.0.0.1:8888/RHello");
+            AnotherTest anotherTest = (AnotherTest) Naming.lookup("rmi://127.0.0.1:8888/AHello");
 //            HelloImpl rhello = new HelloImpl();
             System.out.println(rhello.sayHelloToSomeBody("My first rpc"));
+            System.out.println(anotherTest.getList("jack"));
         } catch (NotBoundException e) {
         } catch (MalformedURLException e) {
             e.printStackTrace();
