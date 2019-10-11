@@ -68,6 +68,13 @@
         </dependency>
 
 
+        <!--密码验证加盐-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
 
     </dependencies>
 
