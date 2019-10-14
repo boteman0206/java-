@@ -68,6 +68,7 @@
         </dependency>
 
 
+
         <!--密码验证加盐-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -75,6 +76,26 @@
             <version>1.4.0</version>
         </dependency>
 
+
+        <!--aop切面编程-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.1.9.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-test</artifactId>
+        </dependency>
 
     </dependencies>
 
