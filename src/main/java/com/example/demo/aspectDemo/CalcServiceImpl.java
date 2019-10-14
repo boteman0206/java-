@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CalcServiceImpl implements CalcService {
     @Override
     public int add(int a, int b) {
-        int result = a + b;
+        int result = a / b;
         System.out.println("a:"+a+",b:"+b+",result:"+result);
         return result;
     }

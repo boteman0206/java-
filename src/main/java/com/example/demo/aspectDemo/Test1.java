@@ -7,23 +7,28 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
+
+//切面编程类似于python里面的装饰器，
+
 @Aspect
 @Configuration
 public class Test1{
 
-    @Before("execution(* com.example.demo.aspectDemo.*.*(..))")
+//    @Before("execution(* com.example.demo.aspectDemo.*.*(..))")
     public void before(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("method:  " + methodName + "  begins");
     }
 
-    @After("execution(* com.example.demo.aspectDemo.*.*(..))")
+//    @After("execution(* com.example.demo.aspectDemo.*.*(..))")
     public void After(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
         System.out.println("method:  " + methodName + "  ends");
     }
 
-    @AfterReturning(value="execution(* com.example.demo.aspectDemo.*.*(..))",returning="result")
+//    @AfterReturning(value="execution(* com.example.demo.aspectDemo.*.*(..))",returning="result")
     public void AfterReturning(JoinPoint joinPoint,Object result ){
         String methodName=joinPoint.getSignature().getName();
         System.out.println("method:  "+methodName+"  return result:"+result);
@@ -32,7 +37,7 @@ public class Test1{
     * @param joinPoint
      * @param exception
  */
-    @AfterThrowing(value="execution(* com.example.demo.aspectDemo.*.*(..))",throwing="exception")
+//    @AfterThrowing(value="execution(* com.example.demo.aspectDemo.*.*(..))",throwing="exception")
     public void afterThrowing(JoinPoint joinPoint, Exception exception){
         String methodName=joinPoint.getSignature().getName();
         System.out.println("method:  "+methodName+"occurs exception:"+exception);
@@ -43,7 +48,10 @@ public class Test1{
  * @param pjp
  * @return
  */
-    @Around(value = "execution(* com.example.demo.aspectDemo.*.*(..))")
+//    一般在方法中我们常用Around的方法来进行方法的切面
+
+//    @Around(value = "execution(* com.example.demo.aspectDemo.*.*(..))")   // 这个注解是值aspectDemo的包下面的所有方法
+    @Around(value = "execution(* com.example.demo.aspectDemo.CalcServiceImpl.*(..))")   // 这个注解是值CalcServiceImpl的接口下面的所有方法
     public Object around(ProceedingJoinPoint pjp) {
         String methodName = pjp.getSignature().getName();
         Object result = null;
@@ -56,9 +64,10 @@ public class Test1{
         } catch (Throwable e) {
             // AfterThrowing
             System.out.println("method:  " + methodName + "occurs exception:" + e);
-        } // After
+        }
+        // After
         System.out.println("method:  " + methodName + "  ends");
-        return result;
+        return new Integer("9");
     }
 }
 
