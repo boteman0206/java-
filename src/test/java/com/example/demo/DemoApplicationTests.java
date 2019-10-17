@@ -3,8 +3,8 @@ package com.example.demo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.huaban.analysis.jieba.JiebaSegmenter;
-import com.qianxinyao.analysis.jieba.keyword.Keyword;
-import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
+//import com.qianxinyao.analysis.jieba.keyword.Keyword;
+//import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hfutec.preprocess.WordFiltering;
@@ -229,14 +229,14 @@ public class DemoApplicationTests {
 
     @Test
     public void ruableTest(){
-        String content="孩子上了幼儿园 安全防拐教育要做好";
-        int topN=5;
-        TFIDFAnalyzer tfidfAnalyzer=new TFIDFAnalyzer();
-        List<Keyword> list=tfidfAnalyzer.analyze(content,topN);
-        for(Keyword word:list)
-            System.out.println(word.getName()+":"+word.getTfidfvalue()+",");
-
-        String name = " asda sd * ad ";
+//        String content="孩子上了幼儿园 安全防拐教育要做好";
+//        int topN=5;
+//        TFIDFAnalyzer tfidfAnalyzer=new TFIDFAnalyzer();
+//        List<Keyword> list=tfidfAnalyzer.analyze(content,topN);
+//        for(Keyword word:list)
+//            System.out.println(word.getName()+":"+word.getTfidfvalue()+",");
+//
+//        String name = " asda sd * ad ";
 
     }
 
