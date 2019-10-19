@@ -20,7 +20,7 @@ public class RestforControl {
     @RequestMapping(value = "/article", method = POST, produces = "application/json")
     public AjaxResponse saveArticle(@RequestBody Article article) {
 
-        log.info("saveArticle：{}",article);
+        log.info("saveArticle：{}",article);   // 在这里使用了 @Slf4j注解简化了日志的使用
         return  AjaxResponse.success(article);
     }
 
