@@ -28,6 +28,7 @@ public class leapPost {
             conn.setDoOutput(true);
             conn.setDoInput(true);
             // 获取URLConnection对象对应的输出流
+
             out = new PrintWriter(conn.getOutputStream());
             // 发送请求参数
 //            System.out.println("打印传递的参数" + param);
@@ -35,6 +36,7 @@ public class leapPost {
             // flush输出流的缓冲
             System.out.println(out.toString());
             out.flush();
+
             // 定义BufferedReader输入流来读取URL的响应
             in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
