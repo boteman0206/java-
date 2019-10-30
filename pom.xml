@@ -39,7 +39,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
-
+        <!--到处csv文件-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.5</version>
+        </dependency>
 
         <!-- java使用jieba分词-->
         <dependency>

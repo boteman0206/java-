@@ -5,8 +5,15 @@ import com.alibaba.fastjson.JSONObject;
 import com.huaban.analysis.jieba.JiebaSegmenter;
 //import com.qianxinyao.analysis.jieba.keyword.Keyword;
 //import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.hfutec.preprocess.WordFiltering;
 import org.hfutec.preprocess.wordseg.Jieba;
 import org.hfutec.preprocess.wordseg.Jieba;
@@ -22,6 +29,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 import javax.print.DocFlavor;
+import javax.security.auth.login.CredentialException;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -414,6 +422,106 @@ public class DemoApplicationTests {
         String date1 = "2019-01-06";
         String substring = date1.substring(0, 7);
         System.out.println(substring);
+
+        String CREATED_SQL = "set hive.exec.reducers.max=5000;" +
+                "drop table if exists das.{table};" +
+                "drop table if exists das.{table}_tmp;" +
+                "create table das.{table}_tmp stored as orc as {sql};" +  // 这个是sql
+                "create table das.{table} like das.{table}_tmp;" +
+                "alter table das.{table} CLUSTERED BY (id) INTO {bockets} BUCKETS;"; // 這個是桶
+
+        String kol_brands = CREATED_SQL.replaceAll("\\{table\\}", "kol_brands");
+
+
+
+    }
+
+
+    @Test
+    public void df() throws UnsupportedEncodingException {
+//        String name = "0226_huishi_xhs_tags";
+//        String[] split = name.split("\\.");
+//        System.out.println(split.length);
+//        System.out.println(split[0]);
+//
+//
+//        String resultPrefix = "";
+//        String concatResTable = resultPrefix.concat("_").concat("cluster").toLowerCase();
+//        System.out.println(concatResTable);
+
+        String name1 = "您好，中国！";
+
+        byte[] utf8 = name1.getBytes("UTF-8");
+        System.out.println(new String(utf8));
+
+        System.out.println(Integer.parseInt("100000092"));
+
+        Sha256Hash sha256Hash = new Sha256Hash("1233");
+        System.out.println(sha256Hash);
+
+        System.out.println(Float.parseFloat("4.3"));
+
+
+        String s = "set hive.exec.reducers.max=5000;drop table if exists das.rrr;drop table if exists das.rrr_tmp;create table das.rrr_tmp stored as orc as  select id, content from tracking.motherbaby_post_weekly limit 100;;create table das.rrr like das.rrr_tmp;alter table das.rrr CLUSTERED BY (id) INTO 251 BUCKETS;insert into table das.rrr select * from das.rrr_tmp;drop table if exists das.rrr_tmp;";
+
+        String[] split = s.split(";");
+        System.out.println("===========");
+        for (String s1 : split) {
+            System.out.println("".equals(s1));
+            if ("".equals(s1)){
+                continue;
+            }
+            System.out.println(s1);
+        }
+
+    }
+
+
+
+    @Test
+    public void testMillion() throws Exception {
+        int times = 10000 * 10;
+        Object[] cells = {"满100减15元", "100011", 15};
+
+        //  导出为CSV文件
+
+        long t1 = System.currentTimeMillis();
+        FileWriter writer = new FileWriter("./test1.csv");
+        CSVPrinter printer = CSVFormat.EXCEL.print(writer);
+        for (int i = 0; i < times; i++) {
+            printer.printRecord("name");
+        }
+        printer.flush();
+        printer.close();
+        long t2 = System.currentTimeMillis();
+        System.out.println("CSV: " + (t2 - t1));
+
+        //  导出为Excel文件
+        long t3 = System.currentTimeMillis();
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet();
+        for (int i = 0; i < times; i++) {
+            XSSFRow row = sheet.createRow(i);
+            for (int j = 0; j < cells.length; j++) {
+                XSSFCell cell = row.createCell(j);
+                cell.setCellValue(String.valueOf(cells[j]));
+            }
+        }
+        FileOutputStream fos = new FileOutputStream("./test2.xlsx");
+        workbook.write(fos);
+        fos.flush();
+        fos.close();
+        long t4 = System.currentTimeMillis();
+        System.out.println("Excel: " + (t4 - t3));
+    }
+
+
+    @Test
+    public void te4stMillion() {
+
+        String a = "nme";
+        System.out.println(a + "_tags");
+
     }
 
 }
