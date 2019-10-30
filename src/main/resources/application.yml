@@ -7,3 +7,11 @@ server:
     min-spare-threads: 30
   port: 9003
   connection-timeout: 5000ms
+
+
+spring:  #  添加日志输出文件  使用 @slf4j 注解可以简化 log的使用
+  ## log config
+  logback:
+    log:
+      home: E:/noah_v1/log/dev
+  #      home: /var/log/noah_v1
