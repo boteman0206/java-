@@ -522,6 +522,10 @@ public class DemoApplicationTests {
         String a = "nme";
         System.out.println(a + "_tags");
 
+        Integer a1 = 100;
+//        Sha256Hash sha256Hash = new Sha256Hash(tableName1 + logById.getClusterNum() + threshold);
+        Sha256Hash sha256Hash = new Sha256Hash("cluster.tyt_cluster" + "12" + "0.4");
+        System.out.println(sha256Hash);
     }
 
 }
