@@ -72,6 +72,15 @@
 
         </dependency>
 
+        <!--dataframe使用-->
+        <dependency>
+            <groupId>joinery</groupId>
+            <artifactId>joinery-dataframe</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+
+
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
