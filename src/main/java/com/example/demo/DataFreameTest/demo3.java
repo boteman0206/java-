@@ -57,8 +57,24 @@ public class demo3 {
         System.out.println(dataFrame.size());
     }
 
+
+    public static void test3(){
+        DataFrame<Object> df = new DataFrame<>("0", "1", "2");
+        df.append("0", Arrays.asList(10, 20, 30));
+        df.append("1", Arrays.asList(40, 50, 60));
+        System.out.println(df.length());
+        DataFrame<Object> reshape = df.reshape(Arrays.asList("0", "1", "2"), Arrays.asList("0", "1"));
+        System.out.println(reshape.length());
+        System.out.println(reshape);
+        System.out.println("===========");
+        System.out.println(df);
+        System.out.println(df.transpose());   //  这个类似于pandas的 df.T
+    }
     public static void main(String[] args) {
 //        test1();
-        test2();
+//        test2();
+
+        float v = Float.parseFloat("1");
+        System.out.println(v);
     }
 }
