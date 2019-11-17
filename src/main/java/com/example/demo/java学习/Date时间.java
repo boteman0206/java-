@@ -2,6 +2,7 @@ package com.example.demo.java学习;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
@@ -27,5 +28,21 @@ public class Date时间 {
             e.printStackTrace();
         }
 
+
+//        格力高日期
+//        创建日历对象用getInstance
+        Calendar instance = Calendar.getInstance();
+        System.out.println(instance);
+        System.out.println(instance.get(Calendar.YEAR));
+        System.out.println(instance.get(Calendar.MONTH));
+        instance.add(1,1);  // 加上一年
+        System.out.println(instance.get(1));
+
+        // 设置年月日时分秒
+        instance.set(2016,5,12);
+        System.out.println(instance.get(1));
+
     }
+
+
 }
