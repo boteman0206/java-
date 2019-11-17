@@ -31,6 +31,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.print.DocFlavor;
 import javax.security.auth.login.CredentialException;
 import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -527,5 +528,12 @@ public class DemoApplicationTests {
         Sha256Hash sha256Hash = new Sha256Hash("cluster.tyt_cluster" + "12" + "0.4");
         System.out.println(sha256Hash);
     }
-
+    @Test
+    public void tetsr(){
+        String a = "hello world";
+        String[] os = a.split("o", 2);
+        for (String o : os) {
+            System.out.println(o);
+        }
+    }
 }
