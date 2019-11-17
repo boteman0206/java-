@@ -23,7 +23,7 @@ public class 数组的方法 {
 //                ((ArrayList) a).add("add");
 //            }
 //        }
-//        TODO 使用 listIterretor来遍历
+//        TODO 使用 listIterretor来遍历 普通迭代器是不行的
         ListIterator listIterator = a.listIterator();
 
         while (listIterator.hasNext()){
@@ -34,5 +34,32 @@ public class 数组的方法 {
             }
         }
         System.out.println(a);  // [a, b, hello, c]
+
+//        vector 线程同步的
+        Vector vector = new Vector();
+        vector.addElement("篮球");
+//        vector.add("足球");
+        for (Object o : vector) {
+            System.out.println(o.toString());
+        }
+//        可以用枚举来遍历
+
+
+        // TODO: 2019/11/17  去重list中的对象 需要重写equals方法
+
+
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(null);
+        arrayList.add("a");
+        arrayList.add(null);
+        System.out.println(arrayList);
+
+        // TODO: 2019/11/17  链表的结构 增加删除快 查询慢
+        LinkedList linkedList = new LinkedList();
+        linkedList.addFirst("pop");
+        linkedList.addLast("zuihou");
+        linkedList.getFirst();// 获取第一个
+        linkedList.removeFirst(); // 删除第一个
+        linkedList.removeLast();
     }
 }
