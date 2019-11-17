@@ -1,5 +1,8 @@
 package com.example.demo.java学习;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class 可变参数 {
     public static void main(String[] args) {
 

@@ -21,6 +21,7 @@ class Student{
         // 构造代码快
         System.out.println("我是构造代码快 我是先执行的");
     }
+    public Student(){}
 
     public Student(String name){
         this.name = name;

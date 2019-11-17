@@ -35,7 +35,7 @@ public class 数组的方法 {
         }
         System.out.println(a);  // [a, b, hello, c]
 
-//        vector 线程同步的
+//     todo   vector 线程同步的
         Vector vector = new Vector();
         vector.addElement("篮球");
 //        vector.add("足球");
@@ -45,7 +45,7 @@ public class 数组的方法 {
 //        可以用枚举来遍历
 
 
-        // TODO: 2019/11/17  去重list中的对象 需要重写equals方法
+        // TODO: 2019/11/17  去除list中的重复对象 需要重写equals方法
 
 
         ArrayList arrayList = new ArrayList();

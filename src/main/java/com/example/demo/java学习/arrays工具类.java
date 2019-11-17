@@ -1,6 +1,7 @@
 package com.example.demo.java学习;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class arrays工具类 {
     public static void main(String[] args) {
@@ -16,5 +17,6 @@ public class arrays工具类 {
         System.out.println(i1); // 找不到返回负数  数字表示插入的位置
         System.out.println(Math.abs(i1));
 
+        List<String> list = Arrays.asList("name", "jj", "age");
     }
 }
