@@ -3,8 +3,6 @@ package com.example.demo;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.huaban.analysis.jieba.JiebaSegmenter;
-//import com.qianxinyao.analysis.jieba.keyword.Keyword;
-//import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
@@ -16,28 +14,23 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.hfutec.preprocess.WordFiltering;
 import org.hfutec.preprocess.wordseg.Jieba;
-import org.hfutec.preprocess.wordseg.Jieba;
-import org.hfutec.preprocess.wordseg.NLPIR;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.internal.util.StringUtil;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-import javax.print.DocFlavor;
-import javax.security.auth.login.CredentialException;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+//import com.qianxinyao.analysis.jieba.keyword.Keyword;
+//import com.qianxinyao.analysis.jieba.keyword.TFIDFAnalyzer;
 
 
 @RunWith(SpringRunner.class)
@@ -531,9 +524,11 @@ public class DemoApplicationTests {
     @Test
     public void tetsr(){
         String a = "hello world";
-        String[] os = a.split("o", 2);
-        for (String o : os) {
-            System.out.println(o);
-        }
+//        String[] os = a.split("o", 2);
+//        for (String o : os) {
+//            System.out.println(o);
+//        }
+        boolean equals = Objects.equals("hell1o", "hello");
+        System.out.println(equals);
     }
 }
