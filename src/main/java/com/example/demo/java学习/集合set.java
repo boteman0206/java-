@@ -7,10 +7,7 @@ package com.example.demo.java学习;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class 集合set {
     public static void main(String[] args) {
@@ -28,9 +25,10 @@ public class 集合set {
 
 
 //        todo 他有对元素的排序功能 比如存储int类型可以自动排好序
+//        todo（排序方式三种： 默认的排序 实现Comparable接口 自定义comparator接口）
         TreeSet treeSet = new TreeSet<>();
 //        treeSet.add(null);  // todo 不能存储null元素
-//        在treeset中添加自定义的对象会出现异常 因为没有实现comparable接口， 指定排序规则
+//      todo  在treeset中添加自定义的对象会出现异常 因为没有实现comparable接口， 指定排序规则
 
         ZiDiyi jack = new ZiDiyi("jack", 78);
         ZiDiyi luck = new ZiDiyi("luck", 22);
@@ -45,6 +43,10 @@ public class 集合set {
         // TODO: 注意点 有一个小bug 年龄一样的时候比值为0只会保存一个
 //       todo treeset去除重复元素的时候和hashcode和equals没有关系 不起作用
 //       如果要只保存一个自定义的对象只能自己在代码中实现
+
+
+
+//        比较器的实现 comparator 的排序方式  final类型的类不能被重写所以只能实现这个方法
     }
 
 
@@ -81,5 +83,15 @@ class ZiDiyi implements Comparable{
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
+    }
+}
+
+
+// TODO: 2019/11/17  自定义实现comparator比较器  可以使用匿名的内部类实现
+class Mycompare implements Comparator<Integer>{
+
+    @Override
+    public int compare(Integer o1, Integer o2) {
+        return o1-o2;
     }
 }
