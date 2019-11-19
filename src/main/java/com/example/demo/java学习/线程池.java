@@ -23,7 +23,7 @@ public class 线程池 {
 //        }
 
 
-        // TODO: 2019/11/20 开启线程池的方式二
+        // TODO: 2019/11/20 开启线程池的方式二  两者的区别 这个可以有返回值
         for (int i = 0; i < 10; i++) {
             service.submit(new T11());
         }
