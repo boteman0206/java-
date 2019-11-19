@@ -24,6 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.*;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -522,7 +523,7 @@ public class DemoApplicationTests {
         System.out.println(sha256Hash);
     }
     @Test
-    public void tetsr(){
+    public void tetsr() throws ParseException {
         String a = "hello world";
 //        String[] os = a.split("o", 2);
 //        for (String o : os) {
@@ -530,5 +531,12 @@ public class DemoApplicationTests {
 //        }
         boolean equals = Objects.equals("hell1o", "hello");
         System.out.println(equals);
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(date);
+        String time = "2019-11-16";
+        Date parse = simpleDateFormat.parse(time);
+        System.out.println("parse = " + parse);
+        System.out.println(format);
     }
 }
