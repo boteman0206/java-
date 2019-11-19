@@ -5,6 +5,8 @@ public class 线程之间的通信 {
     public static void main(String[] args) {
         // TODO: 线程之间的通信  wait 和 notify  必须要写在同步代码块里面
 
+        //  todo notify是唤醒随机的一个线程 notifyAll 唤醒所有的等待线程
+        // TODO: 2019/11/19 注意点 不管使用哪一个方法，如果是有两个或者两个以上的线程都是不能按照顺序
         Task task = new Task();
         new Thread(){
             @Override
@@ -44,7 +46,8 @@ class  Task{
         }
         System.out.println("111111111hello");
         flag = 2;
-        this.notify(); // 唤醒其他线程
+        this.notify(); // 唤醒随机的其他一个线程
+//        this.notifyAll();// 唤醒所有的线程
     }
 
     public synchronized void task2() throws InterruptedException {
