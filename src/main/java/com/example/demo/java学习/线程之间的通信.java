@@ -2,7 +2,7 @@ package com.example.demo.java学习;
 
 
 public class 线程之间的通信 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO: 线程之间的通信  wait 和 notify  必须要写在同步代码块里面
 
         //  todo notify是唤醒随机的一个线程 notifyAll 唤醒所有的等待线程
@@ -30,6 +30,10 @@ public class 线程之间的通信 {
                     }
                 }
         }}.start();
+
+
+        Thread.sleep(3000); // 等待三秒执行下面的代码
+        // TODO: sleep 是抱着锁睡的 而notify是释放锁的
     }
 }
 
