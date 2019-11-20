@@ -15,9 +15,16 @@ public class 自定义对象的不唯一 {
         list.add(onlyOne2);
         list.add(onlyOne3);
         list.add(onlyOne4);
+        list.add(onlyOne5);
+        List<OnlyOne> list1 = new ArrayList<>();
         for (OnlyOne onlyOne : list) {
             System.out.println(onlyOne);
+            if(!list1.contains(onlyOne)){
+                list1.add(onlyOne);
+                System.out.println("不重复的 " + onlyOne);
+            }
         }
+        System.out.println("去重之后的 长度  = " + list1.size());
 
         System.out.println("======list=============");
 
@@ -75,22 +82,22 @@ class OnlyOne implements Comparable<OnlyOne> {
         if (this == o) return true;
         if (!(o instanceof OnlyOne)) return false;
         OnlyOne onlyOne = (OnlyOne) o;
-//        return Objects.equals(this.keyName, onlyOne.keyName) &&
-//                Objects.equals(this.keyWord, onlyOne.keyWord);
-        if (Objects.equals(this.keyName, onlyOne.keyName)){
-            return true;
-        }
-        if (Objects.equals(this.keyWord, onlyOne.keyWord)){
-            return true;
-        }
-        return false;
+        return Objects.equals(this.keyName, onlyOne.keyName) ||
+                Objects.equals(this.keyWord, onlyOne.keyWord);
+//        if (Objects.equals(this.keyName, onlyOne.keyName)){
+//            return true;
+//        }
+//        if (Objects.equals(this.keyWord, onlyOne.keyWord)){
+//            return true;
+//        }
+//        return false;
     }
 
-    @Override
-    public int hashCode() {
-        System.out.println("hash-------------");
-        return Objects.hash(keyName);
-    }
+//    @Override
+//    public int hashCode() {
+//        System.out.println("hash-------------");
+//        return Objects.hash(keyName);
+//    }
 
     @Override
     public String toString() {
