@@ -15,3 +15,15 @@ spring:  #  添加日志输出文件  使用 @slf4j 注解可以简化 log的使
     log:
       home: E:/noah_v1/log/dev
   #      home: /var/log/noah_v1
+
+
+
+
+
+#配置数据库
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/renren_fast?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
