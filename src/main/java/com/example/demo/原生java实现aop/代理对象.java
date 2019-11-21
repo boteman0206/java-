@@ -10,6 +10,8 @@ public class 代理对象 {
 
         HelloWorldImpl helloWorld = new HelloWorldImpl();
         // todo jdk 实现的代理只能够代理接口
+
+//        注意点： 这里必须要实现 ISayHelloWorld 接口对象 进行方法的调用
         ISayHelloWorld o = (ISayHelloWorld) Proxy.newProxyInstance(helloWorld.getClass().getClassLoader(), (Class<?>[]) helloWorld.getClass().getGenericInterfaces(), new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
