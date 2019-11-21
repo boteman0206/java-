@@ -43,6 +43,8 @@ class MyTestTwo{
         DemoTest tes1= DemoTest.WEILAN_FOR_HUOZHU;
         System.out.println(tes1.getType());
         System.out.println(tes1.getDesc());
+        tes1.setDesc("修改了边两的描述");
+        System.out.println(tes1.getDesc());
     }
 }
 
