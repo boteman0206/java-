@@ -1,4 +1,4 @@
-package com.example.demo.模板设计模式;
+package com.example.demo.java学习.模板设计模式;
 
 public class DemoTemplate {
     /**
