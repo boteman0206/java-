@@ -29,6 +29,7 @@ public class DemoTest {
         ArticleOP articleOP = new ArticleOP();
         articleOP.setName("jack");
         articleOP.setAge("12");
+        articleOP.setTgiThread("tgi13");
         //        使用dozerMapper向另一个实体类赋值
         ArticleVo articleVo = dozerMapper.map(articleOP,ArticleVo.class);
         //        测试是可以进行赋值的
