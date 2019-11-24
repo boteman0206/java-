@@ -27,14 +27,24 @@ public class 建立sqlq链接测试 {
         Statement statement = conn.createStatement();
 
         ResultSet resultSet = statement.executeQuery("select * from sys_menu");
+//        statement.execute(sql);  通用的
+//        statement.executeUpdate(sql);
+
         System.out.println(resultSet);
+        // TODO: 2019/11/24
+        // resultSet.next() // 光标向下移
+//        resultSet.previous() 光标项前移
+//        resultSet.afterLast(); 光标移动带末尾 末尾后面是没有数据的
+//        resultSet.beforeFirst(); 光标移动到第一行 最前面一行是没有数据的
         while (resultSet.next()){
-//           todo 通过名字获取
+//           todo 通过类型获取
 //            System.out.println(resultSet.getString("name"));
 //            通过列索引获取
-            System.out.println(resultSet.getObject(1));
+//            System.out.println(resultSet.getObject(1));
+            System.out.println(resultSet.getObject("name"));
 
         }
+
 
 
 //      todo  需要自己关闭连接
