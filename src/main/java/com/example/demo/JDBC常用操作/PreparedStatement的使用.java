@@ -2,7 +2,7 @@ package com.example.demo.JDBC常用操作;
 
 import java.sql.*;
 
-public class test {
+public class PreparedStatement的使用 {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
