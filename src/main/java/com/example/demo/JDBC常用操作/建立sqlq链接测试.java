@@ -13,9 +13,9 @@ import java.sql.*;
  */
 public class 建立sqlq链接测试 {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-//       1：  注册驱动
+//       1：  注册驱动 不建议用第一种方式 第一种方式注册了两种方式 源码中可以看出
 //        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver"); // 建议用这种方式
 
 //        String url = "jdbc:mysql://127.0.0.1:3306/renren_fast?useUnicode=true&characterEncoding=utf-8&useSSL=false";
         String url="jdbc:mysql://localhost:3306/renren_fast?&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC";
@@ -29,9 +29,18 @@ public class 建立sqlq链接测试 {
         ResultSet resultSet = statement.executeQuery("select * from sys_menu");
         System.out.println(resultSet);
         while (resultSet.next()){
-            System.out.println(resultSet.getString("name"));
+//           todo 通过名字获取
+//            System.out.println(resultSet.getString("name"));
+//            通过列索引获取
+            System.out.println(resultSet.getObject(1));
+
         }
 
+
+//      todo  需要自己关闭连接
+        resultSet.close();
+        statement.close();
+        conn.close();
 
     }
 }
