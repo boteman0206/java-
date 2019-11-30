@@ -9,5 +9,7 @@ public class ArticleOP {
     private String name;
     private String age;
 
+    private String tgiThread;
+
 
 }
