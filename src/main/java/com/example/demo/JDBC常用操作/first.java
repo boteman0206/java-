@@ -28,6 +28,23 @@ public class first {
 
         // 5、执行数据库操作
         ResultSet resultSet = statement.executeQuery(sql);
+        // TODO: 2019/12/1 开启事务之前  开启事务的隔离级别
+//        一般很少使用 只做了解
+        //        查看当前的事务隔离级别
+//        1：READ UNCOMMITTED[读未提交]
+//        2： READ COMMITTED [读已提交]
+//        4： REPEATABLE READ[可重复读]
+//        8：Serializable： 避免脏读， 不可重复读取 虚读
+//        级别越高越安全， 性能越低
+//        数据库设置隔离级别
+//        select@@TX_ISOLATION;
+//        todo  设置隔离级别 必须要放在事务之前
+//        set TRANSACTION ISOLATION LEVEL 四个级别之一
+//        jdbc设置隔离级别
+//        conn.setTransactionIsolation(1);
+//        conn.setTransactionIsolation(2);
+//        conn.setTransactionIsolation(4);
+//        conn.setTransactionIsolation(8);
         // TODO: 2019/12/1  提交事务
 //        conn.commit();
 
