@@ -19,12 +19,20 @@ public class first {
         // 3、获取数据库操作对象
         Statement statement = conn.createStatement();
 
+        // TODO: 2019/12/1 开启事务
+//        conn.setAutoCommit(false);
+
+
         // 4、定义操作的 SQL 语句
         String sql = "select * from sys_menu";
 
         // 5、执行数据库操作
         ResultSet resultSet = statement.executeQuery(sql);
+        // TODO: 2019/12/1  提交事务
+//        conn.commit();
 
+        // TODO: 2019/12/1 回滚事务 一般是写在try catch里面
+//        conn.rollback();
         // 6、获取并操作结果集
         while (resultSet.next()) {
             // 解析结果集
