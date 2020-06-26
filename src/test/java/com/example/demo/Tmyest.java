@@ -365,5 +365,10 @@ public class Tmyest {
             System.out.println(integer);
         }
     }
+
+    @Test
+    void GitTest(){
+        System.out.println("git ceshi");
+    }
 }
 
