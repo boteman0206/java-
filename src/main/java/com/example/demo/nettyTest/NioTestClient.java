@@ -28,7 +28,7 @@ public class NioTestClient {
         // 手动写入数据
         open.write(wrap);
 
-
+    
 
 
     }
