@@ -5,7 +5,7 @@ package com.example.demo.java学习;
 // todo 不能存储相同元素的， 最多只能包含一个null
 // TODO: 2019/11/17  set是无顺序的， 存储和取出的元素是不一样的
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
+
 
 import java.util.*;
 
