@@ -28,7 +28,8 @@ public class NioTestClient {
         // 手动写入数据
         open.write(wrap);
 
-    
+        // 阻塞在这里， 如果断掉的话会报错
+        System.in.read();
 
 
     }
