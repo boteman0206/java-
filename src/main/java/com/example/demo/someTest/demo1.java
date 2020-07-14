@@ -14,6 +14,8 @@ import org.junit.Test;
 import java.io.Serializable;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class demo1 {
 
@@ -32,7 +34,8 @@ public class demo1 {
 //        demo1.test8();
 //        demo1.test10();
 //        demo1.test11();
-        demo1.test12();
+//        demo1.test12();
+        demo1.test13();
 
     }
 
@@ -255,7 +258,26 @@ public class demo1 {
         Multimap<Integer, String> inverse = Multimaps.invertFrom(multimap,
                 HashMultimap.create());
         System.out.println("翻转之后 = " + inverse);
-
     }
+
+        void test13(){
+
+            List<String> result = Stream.of(
+                    Lists.newArrayList("1", "1", "3"),
+                    Lists.newArrayList("1", "2"))
+                    .flatMap(Collection::stream).distinct().collect(Collectors.toList());
+            System.out.println(result);
+
+
+            Stream<String> stringStream = Stream.of(
+                    Lists.newArrayList("1", "1", "3"),
+                    Lists.newArrayList("1", "2")).flatMap(
+                    Collection::stream
+            );
+            stringStream.forEach(System.out::println);
+
+
+        }
+
 
 }
